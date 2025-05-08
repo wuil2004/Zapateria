@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Agregar Formulario</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        button {
+            padding: 20px;
+            font-size: 36px;
+            cursor: pointer;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            background: none;
+            border: none;
+            color: black;
+            border-radius: 50%;
+        }
+
+        button:hover {
+            background-color: #f0f0f0;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background-color: #fff;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: black;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        form button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Solo el botón con el ícono -->
+    <button id="abrirModal">
+        <i class="bi bi-plus-circle-fill"></i> 
+    </button>
+
+    <!-- Modal con el formulario -->
+    <div id="miModal" class="modal">
+        <div class="modal-content">
+            <span class="close" id="cerrarModal">&times;</span>
+            <h2>Nuevo producto</h2>
+            <form>
+                <input type="text" placeholder="Nombre" required>
+                <input type="number" placeholder="Precio" required>
+                <input type="number" placeholder="Stock" required>
+                <input type="text" placeholder="Stock_Max" required>
+                <input type="number" placeholder="Tallas" required>
+                <input type="text" placeholder="color" required>
+                <textarea placeholder="Descrpcion" rows="4" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const abrir = document.getElementById("abrirModal");
+        const modal = document.getElementById("miModal");
+        const cerrar = document.getElementById("cerrarModal");
+
+        abrir.onclick = () => {
+            modal.style.display = "block";
+        };
+
+        cerrar.onclick = () => {
+            modal.style.display = "none";
+        };
+
+        window.onclick = (e) => {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+    </script>
+
+</body>
+
+</html>
